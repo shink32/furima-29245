@@ -63,7 +63,7 @@ Things you may want to cover:
 |postal_code       |string      |null: false                     |
 |city              |string      |null: false                     |
 |addresses         |string      |null: false                     |
-|building          |string      |null: false                     |
+|building          |string      |                                |
 |phone_number      |string      |null: false                     |
 ]buyer_name        |string      |null: false                     |
 |user_id           |references  |null: false, foreign_key: true  |
