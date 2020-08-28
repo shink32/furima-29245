@@ -49,8 +49,10 @@ Things you may want to cover:
 |------------------------|------------|--------------------------------|
 |name                    |string      |null: false                     |
 |price                   |integer     |null: false                     |
+|image                   |text        |null: false                     |
 |comment                 |text        |null: false                     |
 |user                    |references  |null: false, foreign_key: true  |
+<!-- その他の項目はアクティブハッシュで入れる予定です。 -->
 
 ### Association
 
@@ -58,7 +60,7 @@ Things you may want to cover:
 - has_one :purchase
 
 
-##　purchases テーブル
+## purchases テーブル
 | Column           | Type       | Options                        | 
 |------------------|------------|--------------------------------|
 |user              |references  |null: false, foreign_key: true  |
