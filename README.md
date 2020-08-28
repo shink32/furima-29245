@@ -76,6 +76,7 @@ Things you may want to cover:
 | Column           | Type       | Options                        | 
 |------------------|------------|--------------------------------|
 |postal_code       |string      |null: false                     |
+|Prefectures       |string      |null: false                     |
 |city              |string      |null: false                     |
 |addresses         |string      |null: false                     |
 |building          |string      |                                |
