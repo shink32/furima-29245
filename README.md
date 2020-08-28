@@ -36,9 +36,7 @@ Things you may want to cover:
 |last_name               |string  |null: false  |
 |first_name_kana         |string  |null: false  |
 |last_name_kana          |string  |null: false  |
-|user_birth_date1        |string  |null: false  |
-|user_birth_date2        |string  |null: false  |
-|user_birth_date3        |string  |null: false  |
+|birth_date              |date    |null: false  |
 
 ### Association
 
@@ -47,11 +45,18 @@ Things you may want to cover:
 
 
 ## items テーブル
-| Column                 | Type       | Options                        | 
-|------------------------|------------|--------------------------------|
-|item_name               |string      |null: false                     |
-|item_price              |string      |null: false                     |
-|user_id                 |references  |null: false, foreign_key: true  |
+| Column                              | Type       | Options                        | 
+|-------------------------------------|------------|--------------------------------|
+|name                                 |string      |null: false                     |
+|price                                |integer     |null: false                     |
+|image                                |text        |null: false                     |
+|comment                              |text        |null: false                     |
+|user                                 |references  |null: false, foreign_key: true  |
+|scheduled_delivery_id(acitve_hash)   |integer     |null: false                     |
+|shipping_fee_status_id(acitve_hash)  |integer     |null: false                     |
+|prefecture_id(acitve_hash)           |integer     |null: false                     |
+|sales_status_id(acitve_hash)         |integer     |null: false                     |
+|category_id(acitve_hash)             |integer     |null: false                     |
 
 ### Association
 
@@ -59,22 +64,35 @@ Things you may want to cover:
 - has_one :purchase
 
 
-##　purchases テーブル
+## purchases テーブル
 | Column           | Type       | Options                        | 
 |------------------|------------|--------------------------------|
-|postal_code       |string      |null: false                     |
-|city              |string      |null: false                     |
-|addresses         |string      |null: false                     |
-|building          |string      |null: false                     |
-|phone_number      |string      |null: false                     |
-]buyer_name        |string      |null: false                     |
-|user_id           |references  |null: false, foreign_key: true  |
-|item_id           |references  |null: false, foreign_key: true  |
+|user              |references  |null: false, foreign_key: true  |
+|item              |references  |null: false, foreign_key: true  |
 
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
+- has_one :destination
+
+
+## destinations テーブル
+| Column                  | Type       | Options                        | 
+|-------------------------|------------|--------------------------------|
+|postal_code              |string      |null: false                     |
+|Prefectures(acitve_hash) |integer     |null: false                     |
+|city                     |string      |null: false                     |
+|addresses                |string      |null: false                     |
+|building                 |string      |                                |
+|phone_number             |string      |null: false                     |
+|purchase                 |references  |null: false, foreign_key: true  |
+
+
+### Association
+
 - belongs_to :purchase
+
 
 
