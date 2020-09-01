@@ -48,12 +48,12 @@ RSpec.describe User, type: :model do
     @user.valid?
     expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
-  it 'ユーザー本名が、名字がないと登録できない' do
+  it 'ユーザー本名が、名字がないと登録できない(名字)' do
     @user.last_name = nil
     @user.valid?
     expect(@user.errors.full_messages).to include("Last name can't be blank")
   end
-  it 'ユーザー本名が、名前がないと登録できない' do
+  it 'ユーザー本名が、名前がないと登録できない(名前)' do
     @user.first_name = nil
     @user.valid?
     expect(@user.errors.full_messages).to include("First name can't be blank")
