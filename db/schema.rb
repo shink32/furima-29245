@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2020_09_01_101741) do
     t.text "image", null: false
     t.text "comment", null: false
     t.bigint "user_id", null: false
+    t.integer "category", null: false
+    t.integer "sales_status", null: false
+    t.integer "shipping_fee_status_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "scheduled_delivery_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
