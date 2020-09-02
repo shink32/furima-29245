@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -18,9 +19,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :image, :comment, :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, :user_id)
-    # 制限する項目にユーザーIDはいるのか？
+    params.require(:item).permit(:name, :price, :comment, :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id )
+    # 制限する項目にユーザーIDはいるのか？ :image,ぱらむはずす
   end
-
 
 end
