@@ -1,9 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all.order(id: "DESC")
+    @items = Item.all.order(id: 'DESC')
 
     @orders = Order.all
-    
   end
 
   def new
