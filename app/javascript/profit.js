@@ -11,5 +11,3 @@ function check() {
   };
 
   window.addEventListener("load", check);
-
-  console.log('OK')
