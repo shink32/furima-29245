@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer    :shipping_fee_status_id, null: false
       t.integer    :prefecture_id,          null: false
       t.integer    :scheduled_delivery_id,  null: false
+      t.boolean    :soldout,                null: false, default: false
 
       
       t.timestamps
