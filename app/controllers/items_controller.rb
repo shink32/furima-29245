@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+
+  before_action :find_item, only: [:show, :edit, :update]
+
+
   def index
     @items = Item.all.order(id: 'DESC')
 
@@ -19,10 +23,24 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
   private
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:image, :name, :price, :comment, :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id).merge(user_id: current_user.id)
