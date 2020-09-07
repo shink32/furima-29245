@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_testpk_test_d96430b8b38d907919529d00");　// PAY.JPテスト公開鍵
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);　// PAY.JPテスト公開鍵
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
