@@ -1,9 +1,17 @@
 class OrdersController < ApplicationController
   def index
+    # @order = Order.all
+
+    @item = Item.find(params[:item_id])
   end
 
+  def new
+     @order = Payment.new #paymentに編集
+  end
+
+
   def create
-    @order = Order.new(price: order_params[:price])
+    @order = Order.new(price: order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -11,6 +19,11 @@ class OrdersController < ApplicationController
     else
       render 'index'
     end
+
+    @orders = Payment.new(order_params)
+    @orders.save
+
+
   end
 
 
