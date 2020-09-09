@@ -60,4 +60,9 @@ RSpec.describe Payment, type: :model do
   it '上記全ての項目があれば、登録できる' do
     expect(@payment).to be_valid
   end
+
+  it '建物名がなくても登録できる' do
+    @payment.building = nil
+    expect(@payment).to be_valid
+  end
 end
