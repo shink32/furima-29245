@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  before_action :move_to_index
+
   def index
     @order = Order.new
     @item = Item.find(params[:item_id])
@@ -6,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-     @order = Payment.new #paymentに編集
+     @order = Payment.new #paymentに 編集
   end
 
 
@@ -39,5 +42,11 @@ class OrdersController < ApplicationController
       currency:'jpy'                 # 通貨の種類(日本円)
     )
   end
+
+  def move_to_index
+  unless user_signed_in?
+    redirect_to new_user_session_path
+  end
+end
 
 end
