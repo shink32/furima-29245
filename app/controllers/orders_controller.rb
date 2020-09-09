@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
-  before_action :move_to_index
+  before_action :move_to_sign_in
+  before_action :move_to_top
 
   def index
     @order = Order.new
@@ -43,10 +44,21 @@ class OrdersController < ApplicationController
     )
   end
 
-  def move_to_index
+  def move_to_sign_in
   unless user_signed_in?
     redirect_to new_user_session_path
   end
 end
+
+def move_to_top
+  @item = Item.find(params[:item_id])
+  if current_user.id == @item.user_id
+    redirect_to items_path
+  end
+end
+
+
+
+
 
 end
