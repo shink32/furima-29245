@@ -82,7 +82,7 @@ Things you may want to cover:
 | Column                  | Type       | Options                        | 
 |-------------------------|------------|--------------------------------|
 |postal_code              |string      |null: false                     |
-|Prefectures(acitve_hash) |integer     |null: false                     |
+|Prefecture(acitve_hash)  |integer     |null: false                     |
 |city                     |string      |null: false                     |
 |addresses                |string      |null: false                     |
 |building                 |string      |                                |
