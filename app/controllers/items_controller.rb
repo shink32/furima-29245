@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_sign_in
 
   def index
     @items = Item.all.order(id: 'DESC')
@@ -51,4 +52,9 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :name, :price, :comment, :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id).merge(user_id: current_user.id)
   end
+
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 end
