@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_sign_in
+  before_action :move_to_sign_in, except: [:index, :show]
 
   def index
     @items = Item.all.order(id: 'DESC')
