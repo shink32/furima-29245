@@ -43,6 +43,8 @@ end
 
   def move_to_top
     @item = Item.find(params[:item_id])
-    redirect_to items_path if current_user.id == @item.user_id
+    redirect_to items_path if (current_user.id == @item.user_id) || @item.order.present?
   end
+
+
 end
