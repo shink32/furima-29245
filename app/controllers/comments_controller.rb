@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def index
   end
 
@@ -6,6 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @comment = Coment.create
   end
 
 end
