@@ -204,3 +204,19 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comment {
+  border: 1px solid gray;
+  margin: 20px;
+  padding: 0 50px;
+
+}
+.post-date {
+  color: gray
+}
+
+.comments h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

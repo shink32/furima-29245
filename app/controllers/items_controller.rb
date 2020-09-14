@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(id: 'DESC')
-
-    @orders = Order.all
   end
 
   def new
@@ -19,9 +17,11 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+    @comment = Comment.new    
   end
 
   def show
+    @comments = @item.comments.includes(:user).order(created_at: "DESC")
   end
 
   def edit
