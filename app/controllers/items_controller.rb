@@ -3,9 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_sign_in, except: [:index, :show]
 
   def index
-    @items = Item.all.order(id: 'DESC')
-
-    @orders = Order.all
+    @items = Item.includes(:user).order(id: 'DESC')
   end
 
   def new
@@ -19,9 +17,11 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+    @comment = Comment.new    
   end
 
   def show
+    @comments = @item.comments.includes(:user).order(created_at: "DESC")
   end
 
   def edit
@@ -41,6 +41,10 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
   private
